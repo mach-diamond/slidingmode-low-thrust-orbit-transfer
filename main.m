@@ -7,19 +7,20 @@ clear all; clc; close all;
 fprintf('Configuring Simulation Parameters...\n')
 
 % Environment Parameters
-Re = 6378.14; % [km] radius of Earth
-mu = 3.986005*10^5; % 
+Re = 6378.14;       % [km] radius of Earth
+mu = 3.986005*10^5; % [m^3/s^2] Earth's gravitational parameter
 
 % Spacecraft Parameters
-thrust = 1;%400;    % [N] engine thrust 
+M = 100;            % [kg] initial mass
+thrust = 1;         % [N] engine thrust 
 ISP = 3000*0.99;    % [s] specific impulse engine
-    
+
 % Initial Conditions -- Circular Orbit
 Xi = 9000;
 v  = sqrt(mu/Xi);
-w0 = [-Xi 0 0 ... % Position
+IC = [-Xi 0 0 ... % Position
       0 -v 0  ... % Velocity
-      100];      % Mass
+      M];         % Mass
 
 % Desired State 
 r_des = 35786; % Geostationary Orbit
@@ -30,7 +31,7 @@ y_des = r_des*sin(theta);
 z_des = zeros(1,length(theta));
 
 % Options - Simulation
-simTime = 60*60*24; % min
+simTime = 60*60*24; % [s]
 
 % Path
 addpath('plotting')
