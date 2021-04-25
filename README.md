@@ -4,8 +4,14 @@ This simulation is in partial fullfillment for the EP707 course on non-linear co
 
 # Requirements
 
+Matlab 2020b
+
 # User Guide
 
+Open Matlab and run main.m 
+
 # Model
+
+Orbital Equations
 
 # References
